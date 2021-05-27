@@ -19,6 +19,13 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
+  let oddNumber = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 1) {
+      oddNumber += numbers[i];
+    }
+  }
+  return oddNumber;
   // Your code here
 }
 
@@ -37,6 +44,14 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
+  let lowerCaseString = string.toLowerCase();
+  let howManyLetters = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (c === lowerCaseString.charAt(i)) {
+      howManyLetters++;
+    }
+  }
+  return howManyLetters;
   // Your code here
 }
 
@@ -58,6 +73,19 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
+  let newArr = [];
+  let a = 0;
+  let i = 0;
+  let j = 1;
+  while (j < numbers.length) {
+    if (numbers[i] > numbers[j]) {
+      newArr[a] = numbers[i] - numbers[j];
+    } else newArr[a] = numbers[j] - numbers[i];
+    i++;
+    j++;
+    a++;
+  }
+  return newArr;
   // Your code here
 }
 
@@ -80,6 +108,14 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
+  let newArr1 = differences(numbers);
+  let larggestNum = 0;
+
+  for (let i = 0; i < newArr1.length; i++) {
+    if (newArr1[i] > larggestNum) larggestNum = newArr1[i];
+  }
+
+  return larggestNum;
   // Your code here
 }
 
@@ -97,6 +133,16 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
+  let sliceAfter = x;
+  let newArr = numbers;
+  let newNumber = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (x === numbers[i]) {
+      numbers = numbers.slice(i + 1, numbers.length);
+    }
+  }
+  return numbers;
+  // newArr.slice()
   // Your code here
 }
 
@@ -114,6 +160,10 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
+  let firstAbbv = firstName.slice(0, 1);
+  let lastAbbv = lastName.slice(0, 1);
+  let abbreviation = `${firstAbbv.toUpperCase()}${lastAbbv.toUpperCase()}`;
+  return abbreviation;
   // Your code here
 }
 
@@ -130,6 +180,9 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
+  if (string === string.toUpperCase()) {
+    return true;
+  } else return false;
   // Your code here
 }
 
@@ -146,6 +199,14 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
+  let Bool = false;
+  let number = x;
+  for (let i = 0; i < numbers.length; i++) {
+    if (number === numbers[i]) {
+      Bool = true;
+    }
+  }
+  return Bool;
   // Your code here
 }
 
@@ -162,6 +223,11 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
+  let reverseString = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    reverseString += string[i];
+  }
+  return reverseString;
   // Your code here
 }
 
