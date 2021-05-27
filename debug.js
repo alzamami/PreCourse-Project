@@ -30,12 +30,24 @@ function generateIntegersArray(firstNumber, lastNumber) {
  * noZeroes("0130401431400") -> "1304014314"
  *
  */
+// function noZeroes(numberString) {
+//   for (let i = 0; i < numberString.length; i++) {
+//     if (numberString.startsWith("0") === "0") {
+//       numberString = numberString.slice(0, 1);
+//     } else if (numberString.endsWith("0") === "0") {
+//       numberString = numberString.slice(-1);
+//     }
+//   }
+//   return numberString;
+// }
+
 function noZeroes(numberString) {
-  while (numberString.startsWith("0")) {
+  while (numberString.startsWith("0") === `0`) {
+    // numberString = numberString.substring(1);
     numberString = numberString.slice(0, 1);
   }
 
-  while (numberString.endswith("0")) {
+  while (numberString.endsWith("0") === `0`) {
     numberString = numberString.slice(-1);
   }
   return numberString;
